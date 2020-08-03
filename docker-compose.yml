@@ -5,13 +5,13 @@ services:
         build:
             context: ./docker
             dockerfile: php.Dockerfile
-        container_name: ${APP_NAME:?err}-php
+        container_name: ${APP_NAME}-php
         volumes:
             - './app:/var/www/html'
 
     nginx:
         image: nginx:latest
-        container_name: ${APP_NAME:?err}-nginx
+        container_name: ${APP_NAME}-nginx
         ports:
             - '80:80'
             - '443:443'
@@ -23,7 +23,7 @@ services:
 
     mariadb:
         image: mariadb:10.3.9
-        container_name: ${APP_NAME:?err}-mariadb
+        container_name: ${APP_NAME}-mariadb
         restart: 'on-failure'
         environment:
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?err}
