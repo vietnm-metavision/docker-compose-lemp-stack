@@ -26,6 +26,6 @@ services:
         container_name: ${APP_NAME}-mariadb
         restart: 'on-failure'
         environment:
-            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?err}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
         volumes:
             - ${PWD}
